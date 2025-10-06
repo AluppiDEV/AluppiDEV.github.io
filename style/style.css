@@ -51,7 +51,7 @@ body {
   overflow-y: auto;
   position: absolute;
   left: -250px;
-  top: 50px;
+  top: 60px;
   bottom: 0;
   transition: left 0.3s ease;
   z-index: 1;
@@ -66,15 +66,55 @@ body {
   color: #fff;
 }
 
-.sidebar a {
+/* Menu principale */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  margin-bottom: 10px;
+}
+
+/* Pulsante sezione */
+.submenu-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.submenu-toggle:hover {
+  color: #ffd700;
+}
+
+/* Sottoliste */
+.submenu {
+  list-style: none;
+  padding-left: 15px;
+  margin: 5px 0;
+  display: none;
+}
+
+.submenu.open {
+  display: block;
+}
+
+.submenu a {
   display: block;
   color: #bbb;
   text-decoration: none;
-  padding: 5px 0;
+  padding: 4px 0;
   border-radius: 4px;
 }
 
-.sidebar a:hover {
+.submenu a:hover {
   background-color: #3a3a3a;
   color: #fff;
 }
