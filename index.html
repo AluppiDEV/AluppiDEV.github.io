@@ -1,10 +1,45 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualizzatore Appunti</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Pagina AluppiDEV</h1>
+  <!-- Navbar -->
+  <div class="navbar">
+    <button id="toggleMenu">☰ Menu</button>
+    <span>Visualizzatore Appunti</span>
+    <button onclick="goBack()">← Torna Indietro</button>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h3>📘 Appunti</h3>
+    <a href="appunti/introduzione.html" target="viewerFrame">Introduzione</a>
+    <a href="appunti/barocco.html" target="viewerFrame">Barocco</a>
+    <a href="appunti/manierismo.html" target="viewerFrame">Manierismo</a>
+    <a href="appunti/assolutismo.html" target="viewerFrame">Assolutismo</a>
+    <a href="appunti/luigi-xiv.html" target="viewerFrame">Luigi XIV</a>
+  </div>
+
+  <!-- Contenuto -->
+  <div class="main">
+    <iframe id="viewerFrame" name="viewerFrame" src="appunti/introduzione.html"></iframe>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const toggleMenu = document.getElementById("toggleMenu");
+
+    toggleMenu.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </body>
 </html>
