@@ -1,75 +1,121 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visualizzatore Appunti</title>
-  <link rel="stylesheet" href="./style/style.css" />
-</head>
-<body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <button id="toggleMenu">☰ Menu</button>
-    <span>Visualizzatore Appunti</span>
-    <button onclick="goBack()">← Torna Indietro</button>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizzatore Appunti</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body class="no-scroll">
+    <!-- Navbar -->
+    <div class="navbar">
+      <button id="toggleMenu">☰ Menu</button>
+      <span>Visualizzatore Appunti</span>
+      <button onclick="goBack()">← Torna Indietro</button>
+    </div>
 
-  <!-- Sidebar -->
-  <nav class="sidebar" id="sidebar">
-    <h3>📘 Appunti</h3>
-    <ul class="menu">
-      <li class="menu-item">
-        <button class="submenu-toggle">📖 Storia</button>
-        <ul class="submenu">
-          <li><a href="appunti/storia/barocco.html" target="viewerFrame">Barocco</a></li>
-          <li><a href="appunti/storia/manierismo.html" target="viewerFrame">Manierismo</a></li>
-          <li><a href="appunti/storia/assolutismo.html" target="viewerFrame">Assolutismo</a></li>
-        </ul>
-      </li>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <h3>📘 Appunti</h3>
+      <ul class="menu">
+        <li class="menu-item">
+          <button class="submenu-toggle">📖 Storia</button>
+          <ul class="submenu">
+            <li>
+              <a href="appunti/storia/barocco.html" target="viewerFrame"
+                >Barocco</a
+              >
+            </li>
+            <li>
+              <a href="appunti/storia/manierismo.html" target="viewerFrame"
+                >Manierismo</a
+              >
+            </li>
+            <li>
+              <a href="appunti/storia/assolutismo.html" target="viewerFrame"
+                >Assolutismo</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <button class="submenu-toggle">✍️ Italiano</button>
+          <ul class="submenu">
+            <li>
+              <a href="appunti/italiano/poesia.html" target="viewerFrame"
+                >Poesia</a
+              >
+            </li>
+            <li>
+              <a href="appunti/italiano/prosa.html" target="viewerFrame"
+                >Prosa</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <button class="submenu-toggle">🔬 Scienze</button>
+          <ul class="submenu">
+            <li>
+              <a
+                href="appunti/scienze/rivoluzione-scientifica.html"
+                target="viewerFrame"
+                >Rivoluzione Scientifica</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
 
-      <li class="menu-item">
-        <button class="submenu-toggle">✍️ Italiano</button>
-        <ul class="submenu">
-          <li><a href="appunti/italiano/poesia.html" target="viewerFrame">Poesia</a></li>
-          <li><a href="appunti/italiano/prosa.html" target="viewerFrame">Prosa</a></li>
-        </ul>
-      </li>
+    <!-- Contenuto -->
+    <div class="main">
+      <iframe
+        id="viewerFrame"
+        name="viewerFrame"
+        src="appunti/main.html"
+        class="viewer"
+      ></iframe>
+    </div>
 
-      <li class="menu-item">
-        <button class="submenu-toggle">🔬 Scienze</button>
-        <ul class="submenu">
-          <li><a href="appunti/scienze/rivoluzione-scientifica.html" target="viewerFrame">Rivoluzione Scientifica</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+    <script>
+      // Apertura/chiusura menu laterale
+      const sidebar = document.getElementById("sidebar");
+      const toggleMenu = document.getElementById("toggleMenu");
 
-  <!-- Contenuto -->
-  <div class="main">
-    <iframe id="viewerFrame" name="viewerFrame" src="appunti/main.html"></iframe>
-  </div>
-
-  <script>
-    // Apertura/chiusura menu laterale
-    const sidebar = document.getElementById("sidebar");
-    const toggleMenu = document.getElementById("toggleMenu");
-    toggleMenu.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-    });
-
-    // Apertura sottomenù
-    const submenuToggles = document.querySelectorAll(".submenu-toggle");
-    submenuToggles.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const submenu = btn.nextElementSibling;
-        submenu.classList.toggle("open");
+      toggleMenu.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
       });
-    });
 
-    // Torna indietro
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-</body>
+      // Chiudi sidebar quando clicchi su un link (opzionale, utile su mobile)
+      const sidebarLinks = document.querySelectorAll(".sidebar a");
+      sidebarLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 700) {
+            sidebar.classList.remove("open");
+          }
+        });
+      });
+
+      // Apertura sottomenù
+      const submenuToggles = document.querySelectorAll(".submenu-toggle");
+      submenuToggles.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const submenu = btn.nextElementSibling;
+          submenu.classList.toggle("open");
+        });
+      });
+
+      // Torna indietro nell'iframe
+      function goBack() {
+        const iframe = document.getElementById("viewerFrame");
+        try {
+          iframe.contentWindow.history.back();
+        } catch (e) {
+          // Se l'iframe non ha history, torna alla pagina principale
+          iframe.src = "appunti/main.html";
+        }
+      }
+    </script>
+  </body>
 </html>
