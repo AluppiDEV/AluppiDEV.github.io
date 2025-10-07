@@ -71,7 +71,7 @@ hr {
 /* ========== LINK ========== */
 a {
   color: #1e90ff;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
   transition: color 0.2s;
 }
