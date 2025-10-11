@@ -4,17 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strato di Rete e Datalink</title>
-    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../../../style/style.css" />
   </head>
   <body>
     <div class="viewer-content">
-      <a class="back-link" href="../index.html">🔙 Torna all'indice</a>
-
       <header>
         <h1>🌐 Strato di Rete e Strato Datalink</h1>
         <p>
-          Differenze, funzioni e modalità di comunicazione tra i livelli del modello
-          OSI dedicati al trasferimento dei dati tra nodi e reti.
+          Differenze, funzioni e modalità di comunicazione tra i livelli del
+          modello OSI dedicati al trasferimento dei dati tra nodi e reti.
         </p>
       </header>
 
@@ -22,14 +20,14 @@
         <section>
           <h2>1. Differenze tra Datalink e Network</h2>
           <p>
-            Lo <strong>strato Datalink</strong> si occupa della comunicazione tra
-            <strong>due nodi adiacenti</strong> nella stessa rete locale.
+            Lo <strong>strato Datalink</strong> si occupa della comunicazione
+            tra <strong>due nodi adiacenti</strong> nella stessa rete locale.
           </p>
           <p>
             Lo <strong>strato Network</strong> invece gestisce la
             <strong>trasmissione end-to-end</strong> di pacchetti (PDU di rete)
-            dal <strong>mittente</strong> al <strong>destinatario finale</strong>,
-            attraversando più reti.
+            dal <strong>mittente</strong> al
+            <strong>destinatario finale</strong>, attraversando più reti.
           </p>
 
           <h3>Dispositivi principali</h3>
@@ -61,24 +59,32 @@
           <h2>3. Funzioni dello Strato di Rete</h2>
           <h3>🔹 Comunicazione (Switching)</h3>
           <p>
-            Definisce la modalità con cui il messaggio viene inviato
-            dal nodo sorgente al nodo destinatario:
+            Definisce la modalità con cui il messaggio viene inviato dal nodo
+            sorgente al nodo destinatario:
           </p>
           <ul>
-            <li><strong>Packet Switching:</strong> i dati vengono suddivisi in pacchetti indipendenti.</li>
-            <li><strong>Circuit Switching:</strong> viene stabilito un circuito dedicato per la comunicazione.</li>
+            <li>
+              <strong>Packet Switching:</strong> i dati vengono suddivisi in
+              pacchetti indipendenti.
+            </li>
+            <li>
+              <strong>Circuit Switching:</strong> viene stabilito un circuito
+              dedicato per la comunicazione.
+            </li>
           </ul>
 
           <h3>🔹 Instradamento (Routing)</h3>
           <p>
-            Seleziona il <strong>percorso migliore</strong> per l’invio dei pacchetti,
-            utilizzando specifici <strong>algoritmi di routing</strong>.
+            Seleziona il <strong>percorso migliore</strong> per l’invio dei
+            pacchetti, utilizzando specifici
+            <strong>algoritmi di routing</strong>.
           </p>
 
           <h3>🔹 Internetworking</h3>
           <p>
             Gestisce la <strong>comunicazione tra reti fisiche diverse</strong>,
-            permettendo la connessione tra tecnologie eterogenee (es. Ethernet, Wi-Fi, WAN).
+            permettendo la connessione tra tecnologie eterogenee (es. Ethernet,
+            Wi-Fi, WAN).
           </p>
         </section>
 
@@ -89,8 +95,8 @@
 
           <h3>🔸 Servizio Connection-Oriented</h3>
           <p>
-            Simile a una rete telefonica analogica.  
-            Prima della trasmissione, viene stabilita una connessione tra mittente e destinatario.
+            Simile a una rete telefonica analogica. Prima della trasmissione,
+            viene stabilita una connessione tra mittente e destinatario.
           </p>
           <ul>
             <li>Affidabile</li>
@@ -100,8 +106,8 @@
 
           <h3>🔸 Servizio Connectionless</h3>
           <p>
-            Tipico della rete Internet.  
-            Ogni pacchetto viene inviato indipendentemente dagli altri.
+            Tipico della rete Internet. Ogni pacchetto viene inviato
+            indipendentemente dagli altri.
           </p>
           <ul>
             <li>Inaffidabile (nessuna garanzia di consegna o ordine)</li>
@@ -115,11 +121,13 @@
           <h2>5. Reti Connectionless – Datagram Network</h2>
           <p>
             In una <strong>Datagram Network</strong>, i pacchetti (detti
-            <strong>datagrammi</strong>) vengono inseriti nella rete
-            e instradati individualmente.
+            <strong>datagrammi</strong>) vengono inseriti nella rete e
+            instradati individualmente.
           </p>
           <ul>
-            <li>Ogni pacchetto contiene l’indirizzo della destinazione finale.</li>
+            <li>
+              Ogni pacchetto contiene l’indirizzo della destinazione finale.
+            </li>
             <li>I pacchetti possono seguire percorsi diversi.</li>
           </ul>
         </section>
@@ -129,24 +137,25 @@
         <section>
           <h2>6. Reti Connection-Oriented – Virtual Circuit Network</h2>
           <p>
-            In una <strong>Virtual Circuit Network</strong>, la comunicazione avviene
-            attraverso una connessione logica temporanea chiamata
+            In una <strong>Virtual Circuit Network</strong>, la comunicazione
+            avviene attraverso una connessione logica temporanea chiamata
             <strong>circuito virtuale</strong>.
           </p>
 
           <h3>Fasi del servizio</h3>
           <ol>
             <li>
-              <strong>Connection Setup:</strong> viene stabilito un percorso logico
-              tra mittente e destinatario e riservate le risorse necessarie.
+              <strong>Connection Setup:</strong> viene stabilito un percorso
+              logico tra mittente e destinatario e riservate le risorse
+              necessarie.
             </li>
             <li>
               <strong>Trasmissione:</strong> i pacchetti viaggiano in ordine
               lungo il circuito stabilito.
             </li>
             <li>
-              <strong>Connection Release:</strong> la connessione viene rilasciata
-              al termine della trasmissione.
+              <strong>Connection Release:</strong> la connessione viene
+              rilasciata al termine della trasmissione.
             </li>
           </ol>
 
@@ -161,8 +170,8 @@
               che associa il numero del VC in ingresso con l’uscita corretta.
             </li>
             <li>
-              Tutti i pacchetti seguono lo stesso percorso logico,
-              garantendo ordine e coerenza.
+              Tutti i pacchetti seguono lo stesso percorso logico, garantendo
+              ordine e coerenza.
             </li>
           </ul>
         </section>
