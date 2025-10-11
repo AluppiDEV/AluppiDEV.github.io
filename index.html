@@ -18,7 +18,9 @@
     <!-- Sidebar -->
     <nav class="sidebar" id="sidebar">
       <h3>📘 Appunti</h3>
-      <a href="appunti/main.html" target="viewerFrame">Home</a>
+      <a href="appunti/main.html" class="home-button" target="viewerFrame">
+        🏠 Torna alla Home
+      </a>
       <ul class="menu">
         <li class="menu-item">
           <button class="submenu-toggle">✍️ Letteratura</button>
@@ -44,52 +46,80 @@
                 >Assolutismo</a
               >
             </li>
+            <li>
+              <a
+                href="appunti/Letteratura/Doc/Esame_Stato_Prova_Scritta.html"
+                target="viewerFrame"
+                >Esame di stato</a
+              >
+            </li>
           </ul>
         </li>
         <li class="menu-item">
           <button class="submenu-toggle">📖 Storia</button>
           <ul class="submenu">
+            <h3>Capitolo I</h3>
             <li>
-              <a href="appunti/Storia/Doc/LuigiXIV.html" target="viewerFrame"
+              <a
+                href="appunti/Storia/Doc/Capitolo 1/LuigiXIV.html"
+                target="viewerFrame"
                 >Luigi XIV</a
               >
             </li>
             <li>
-              <a href="appunti/Storia/Doc/PietroBIG.html" target="viewerFrame"
+              <a
+                href="appunti/Storia/Doc/Capitolo 1/PietroBIG.html"
+                target="viewerFrame"
                 >Pietro il Grande</a
               >
             </li>
             <li>
               <a
-                href="appunti/Storia/Doc/GovernoInglese.html"
+                href="appunti/Storia/Doc/Capitolo 1/GovernoInglese.html"
                 target="viewerFrame"
                 >Governo Inglese</a
+              >
+            </li>
+            <h3>Capitolo II</h3>
+            <li>
+              <a href="appunti/Storia/Doc/Capitolo2.html" target="viewerFrame"
+                >Guerre di successione</a
               >
             </li>
           </ul>
         </li>
         <li class="menu-item">
-          <button class="submenu-toggle">💻 tepsit</button>
+          <button class="submenu-toggle">💻 Tepsit</button>
           <ul class="submenu">
-            <!-- <li>
-              <a
-                href="appunti/scienze/rivoluzione-scientifica.html"
-                target="viewerFrame"
-                >Rivoluzione Scientifica</a
+            <li>
+              <a href="appunti/Tepsit/Doc/Verifica_1.html" target="viewerFrame"
+                >Ripasso per la prima verifica</a
               >
-            </li> -->
+            </li>
           </ul>
         </li>
         <li class="menu-item">
           <button class="submenu-toggle">⚙️ Sistemi</button>
           <ul class="submenu">
-            <!-- <li>
+            <li>
               <a
-                href="appunti/scienze/rivoluzione-scientifica.html"
+                href="appunti/Sistemi/Doc/NetworkLayer.html"
                 target="viewerFrame"
-                >Rivoluzione Scientifica</a
+                >Network layer</a
               >
-            </li> -->
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <button class="submenu-toggle">⚠️ Telecomunicazioni</button>
+          <ul class="submenu">
+            <li>
+              <a
+                href="appunti/Telcomunicazioni/Doc/Ripasso.html"
+                target="viewerFrame"
+                >Ripasso</a
+              >
+            </li>
           </ul>
         </li>
       </ul>
@@ -114,23 +144,34 @@
         sidebar.classList.toggle("open");
       });
 
-      // Chiudi sidebar quando clicchi su un link (opzionale, utile su mobile)
-      const sidebarLinks = document.querySelectorAll(".sidebar a");
-      sidebarLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          if (window.innerWidth <= 700) {
-            sidebar.classList.remove("open");
-          }
-        });
-      });
-
       // Apertura sottomenù
       const submenuToggles = document.querySelectorAll(".submenu-toggle");
       submenuToggles.forEach((btn) => {
         btn.addEventListener("click", () => {
           const submenu = btn.nextElementSibling;
           submenu.classList.toggle("open");
+          btn.classList.toggle("active");
         });
+      });
+
+      // Chiudi SEMPRE sidebar quando clicchi un link
+      const sidebarLinks = document.querySelectorAll(
+        ".sidebar a[target='viewerFrame']"
+      );
+      sidebarLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          sidebar.classList.remove("open");
+        });
+      });
+
+      // Chiudi sidebar cliccando fuori (opzionale, utile anche su desktop)
+      document.addEventListener("click", (event) => {
+        if (
+          !sidebar.contains(event.target) &&
+          !toggleMenu.contains(event.target)
+        ) {
+          sidebar.classList.remove("open");
+        }
       });
 
       // Torna indietro nell'iframe
@@ -139,7 +180,6 @@
         try {
           iframe.contentWindow.history.back();
         } catch (e) {
-          // Se l'iframe non ha history, torna alla pagina principale
           iframe.src = "appunti/main.html";
         }
       }
