@@ -175,6 +175,73 @@
             </li>
           </ul>
         </section>
+
+        <hr />
+
+        <section>
+          <h2>7. Tecniche di Commutazione ⚡</h2>
+          <p>
+            Le <strong>tecniche di commutazione</strong> definiscono il modo in
+            cui i dati vengono trasmessi attraverso la rete. Esse riguardano la
+            parte <em>fisica e infrastrutturale</em> della comunicazione, mentre
+            le tipologie di servizio (connectionless o connection-oriented)
+            descrivono l’aspetto logico del collegamento tra mittente e
+            destinatario.
+          </p>
+
+          <h3>🔹 Commutazione di Circuito</h3>
+          <p>
+            Viene stabilita una <strong>connessione dedicata end-to-end</strong>
+            tra mittente e destinatario. Tutte le risorse necessarie alla
+            comunicazione sono riservate in anticipo.
+          </p>
+          <ul>
+            <li>Alta affidabilità e qualità del servizio (QoS garantita).</li>
+            <li>Assenza di congestione durante la connessione.</li>
+          </ul>
+
+          <h4>Contro</h4>
+          <ul>
+            <li>
+              Possibile <strong>spreco di risorse</strong> se non vi è scambio
+              continuo di dati.
+            </li>
+            <li>
+              <strong>Attesa</strong> prima della connessione e
+              <strong>sensibilità ai guasti</strong>.
+            </li>
+            <li>
+              La fatturazione può basarsi su <strong>durata</strong> e
+              <strong>lunghezza</strong> della connessione.
+            </li>
+          </ul>
+
+          <h3>🔹 Commutazione di Pacchetto</h3>
+          <p>
+            Il messaggio viene suddiviso in <strong>pacchetti</strong>, inviati
+            in rete in modo indipendente (possono seguire percorsi differenti).
+            È la modalità più comune nelle reti moderne come Internet.
+          </p>
+          <ul>
+            <li>
+              Elevata <strong>efficienza</strong>: nessuno spreco di risorse
+              quando non si trasmette.
+            </li>
+            <li>
+              Maggiore <strong>tolleranza ai guasti</strong>: se un nodo cade,
+              i pacchetti possono seguire altre vie.
+            </li>
+          </ul>
+
+          <h4>Contro</h4>
+          <ul>
+            <li>Possibile <strong>congestione</strong> e perdita di pacchetti.</li>
+            <li>Servizio <strong>non affidabile</strong> (nessuna garanzia di ordine o consegna).</li>
+            <li>
+              Non è possibile garantire la <strong>qualità del servizio (QoS)</strong>.
+            </li>
+          </ul>
+        </section>
       </main>
     </div>
   </body>
