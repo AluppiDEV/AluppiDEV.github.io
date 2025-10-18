@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcolo Correnti e Tensioni</title>
+    <link rel="stylesheet" href="../../../style/style.css" />
+
+    <!-- Libreria per formule LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+
+  <body>
+    <div class="viewer-content">
+      <header>
+        <h1>Lezione 18/10/25</h1>
+      </header>
+      <h3>Circuito</h3>
+      <img
+        src="../Img/Circuito-18-10.png"
+        alt="Circuito"
+        style="max-width: 400px; display: block; margin: 20px auto"
+      />
+
+      <hr />
+
+      <h3>Dat del problema</h3>
+      <section>
+        <ul class="no-bullets">
+          <li>$$R_1 ~ 10K \Omega$$</li>
+          <li>$$R_2 ~ 20K \Omega$$</li>
+          <li>$$R_3 ~ 14K \Omega$$</li>
+          <li>$$R_4 ~ 5K \Omega$$</li>
+          <li>$$E_1 ~ 10 ~ V$$</li>
+          <li>$$E_2 ~ 12 ~ V$$</li>
+        </ul>
+      </section>
+
+      <hr />
+
+      <h3>Dati da trovare</h3>
+      <ul class="no-bullets">
+        <li>$$I_4 = ?$$</li>
+        <li>$$V_{R_1} = ?$$</li>
+        <li>$$I_2 = ?$$</li>
+        <li>$$V_3 = ?$$</li>
+      </ul>
+
+      <hr />
+
+      <h3>Utilizziamo sovrapposizione degli effetti</h3>
+      <hr />
+      <h3>Primo circuito togliendo E2</h3>
+
+      <section>
+        <h4>Calclimao la resistenza equivalente</h4>
+        <ul class="no-bullets">
+          <li>$$ R_{EQ1} = R_2 + R_3 = 20000 + 14000 = 34K \Omega $$</li>
+          <li>
+            $$ R_{EQ2} = \frac{R_1 \cdot R_{EQ1}}{R_1 + R_{EQ1}} = \frac{10000
+            \cdot 34000}{10000 + 34000} = \frac{340000}{44000} = 7700 \Omega $$
+          </li>
+          <li>$$ R_{EQ} = R_{EQ2} + R_4 = 7700 + 5000 = 12700 \Omega $$</li>
+        </ul>
+
+        <hr />
+
+        <h4>Troviamo la corrente 4</h4>
+        <ul class="no-bullets">
+          <li>$$ I_4 = \frac{E_1}{R_{EQ}}$$</li>
+          <li>$$ I_4 = \frac{10}{12700}$$</li>
+          <li>$$ I_4 = 0.8 ~ mA$$</li>
+        </ul>
+
+        <hr />
+
+        <h4>Calcliamo la tensione nel tratto della resistenza 1</h4>
+        <ul class="no-bullets">
+          <li>$$V_{AB} = I_4 \cdot R_{EQ2} = 0.8 \cdot 7700 $$</li>
+          <li>$$1 ~\cdot~ 3000 ~+~ I_2 ~\cdot~ 10000 = 0$$</li>
+          <li>$$1 ~\cdot~ 3000 ~+~ 10000 = I_2$$</li>
+          <li>$$1 ~\cdot~ 3000 ~+~ 10000 = 13000$$</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
