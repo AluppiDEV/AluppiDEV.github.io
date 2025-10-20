@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcolo Correnti e Tensioni</title>
+    <link rel="stylesheet" href="../../../style/style.css" />
+
+    <!-- Libreria per formule LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+
+  <body>
+    <div class="viewer-content">
+      <header>
+        <h1>Esercizi per il 20-10-25</h1>
+      </header>
+      <h3>Circuito e Dati</h3>
+      <img
+        src="../Img/Circuito-20-10.jpg"
+        alt="Circuito 1"
+        style="
+          max-width: 400px;
+          display: block;
+          margin: 20px auto;
+          transform: rotate(-90deg);
+        "
+      />
+
+      <ul class="no-bullets">
+        <li>Resistenze pari = 1k</li>
+        <li>Resistenze dispari = 10k</li>
+      </ul>
+
+      <hr />
+
+      <h3>Thevenin</h3>
+      <section>
+        <h4>Calcliamo resistenza equivalente</h4>
+        <ul class="no-bullets">
+          <li>$$ R_{EQ1} = R_{234} = \frac{1000 \cdot (10000 + 1000)}{1000 \cdot (10000 + 1000)} = 916,6 \Omega $$</li>
+          <li>$$ R_{EQ2} = R_{56} = \frac{10000 \cdot 1000}{10000 + 1000} = 909,09 \Omega $$</li>
+          <li>$$ R_{EQ3} = R_{78} = \frac{10000 \cdot 1000}{10000 + 1000} = 909,09 \Omega $$</li>
+          <li>$$ R_{EQ} =  $$</li>
+
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
